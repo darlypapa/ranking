@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>금손/똥손 테스트</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="container">
+        <!-- 초기 입력 화면 -->
+        <div id="inputScreen" class="screen active">
+            <div class="input-container">
+                <h1>금손/똥손 테스트</h1>
+                
+                <!-- 1단계: 인원수 입력 -->
+                <div id="nameInputStep1">
+                    <p>몇 명의 순위를 매기시겠습니까? (최대 30명까지 가능)</p>
+                    <div class="input-group">
+                        <input type="number" id="nameParticipantCount" min="2" max="30" value="5" placeholder="인원수 입력">
+                        <button id="nextToNameInputBtn">다음</button>
+                    </div>
+                </div>
+                
+                <!-- 2단계: 이름 입력 -->
+                <div id="nameInputStep2" style="display: none;">
+                    <p>참여자들의 이름을 입력해주세요</p>
+                    <div id="nameInputsContainer" class="name-inputs-container">
+                        <!-- 이름 입력 필드가 동적으로 생성됩니다 -->
+                    </div>
+                    <div class="name-input-actions">
+                        <button id="backToCountBtn" class="back-btn">이전</button>
+                        <button id="startWithNameBtn" class="start-btn" disabled>시작하기</button>
+                    </div>
+                </div>
+                
+            </div>
+        </div>
+
+        <!-- 메인 게임 화면 -->
+        <div id="gameScreen" class="screen">
+            <div class="header">
+                <h2>금손/똥손 테스트</h2>
+                <div class="controls">
+                    <button id="saveBtn">📷 저장</button>
+                    <button id="shareBtn">🔗 공유</button>
+                    <button id="resetBtn">🔄 다시 시작</button>
+                </div>
+            </div>
+            <div id="canvasContainer" class="canvas-container">
+                <canvas id="rankingCanvas"></canvas>
+            </div>
+            <div class="info">
+                <p>동그라미를 클릭하여 순위를 매겨주세요</p>
+                <div id="rankStatus"></div>
+            </div>
+        </div>
+
+        <!-- 결과 화면 -->
+        <div id="resultScreen" class="screen">
+            <div class="result-container">
+                <h2>🏆 최종 순위</h2>
+                <div id="resultList" class="result-list">
+                    <!-- 결과가 동적으로 생성됩니다 -->
+                </div>
+                <div class="result-controls">
+                    <button id="resultSaveBtn">📷 결과 저장</button>
+                    <button id="resultResetBtn">🔄 다시 시작</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- html2canvas 라이브러리 -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/html2canvas/1.4.1/html2canvas.min.js"></script>
+    
+    
+    <script src="script.js"></script>
+</body>
+</html>
